@@ -1,4 +1,4 @@
-from storage import read_expenses
+from storage import read_expenses,write_expense
 from datetime import date
 
 def main():
@@ -9,7 +9,7 @@ def main():
             print(f'{index + 1}: {menu}')
 
         user_choice = int(input("Enter your choice:"))
-
+        
         if user_choice == 1:
 
             while True:
@@ -38,7 +38,21 @@ def main():
                 expense_date = user_date
             
             note = input("Enter your note:")
-
+            expenses_list = read_expenses()
+            if not expenses_list:
+                new_id = 101
+            else:
+                last_expense = expenses_list[-1]
+                new_id = int(last_expense["id"]) + 1
+            new_expense = {
+            "id" : new_id,
+            "date" : expense_date,
+            "amount": amount,
+            "category": category,
+            "note" : note
+            }
+            write_expense(new_expense)
+            print("Expense added successfully!")
         elif user_choice == 2:
             print(read_expenses())
         elif user_choice == 3:

@@ -20,5 +20,14 @@ def read_expenses():
     return expenses
 
 
-
+def write_expense(expense):
+    with open(file_path,'a',newline='')as file:
+        writer = csv.writer(file)
+        writer.writerow([
+            expense['id'],
+            expense['date'],
+            expense['amount'],
+            expense['category'],
+            expense['note']
+        ])
  
