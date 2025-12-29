@@ -1,20 +1,20 @@
 from storage import read_expenses, write_expense
 from datetime import date
-from expenses import display_expenses
+from expenses import display_expenses,category_summary,display_category_summary
 
 
 def main():
     program_run = True
     while program_run:
-        menu_options = ["Add expense", "View expense", "Exit"]
+        menu_options = ["Add expense", "View expense", "View category Summary","Exit"]
         for index, menu in enumerate(menu_options):
             print(f"{index + 1}: {menu}")
         while True:
             user_choice = input("Enter your choice:")
             try:
                 user_choice = int(user_choice)
-                if user_choice not in range(1, 4):
-                    print("Enter the valid number (1-3).")
+                if user_choice not in range(1, 5):
+                    print("Enter the valid number (1-4).")
                     continue
                 break
             except ValueError:
@@ -65,6 +65,9 @@ def main():
         elif user_choice == 2:
             display_expenses(read_expenses())
         elif user_choice == 3:
+            summary = category_summary(read_expenses())
+            display_category_summary(summary)
+        elif user_choice == 4:
             program_run = False
             print("exit")
         else:
