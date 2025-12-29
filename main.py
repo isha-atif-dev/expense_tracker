@@ -52,6 +52,7 @@ def main():
                 new_id = 1
             else:
                 last_expense = expenses_list[-1]
+                
                 new_id = int(last_expense["id"]) + 1
             new_expense = {
                 "id": new_id,

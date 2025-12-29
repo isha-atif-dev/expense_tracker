@@ -1,3 +1,6 @@
 id,date,amount,category,note
 1,2025-12-29,21.0,food,dinner
 2,2025-12-29,45.0,rent,room rent
+3,2025-12-29,10.0,food,dinner
+4,2025-12-29,30.0,food,lunch
+5,2025-12-29,89.0,car,car wash
